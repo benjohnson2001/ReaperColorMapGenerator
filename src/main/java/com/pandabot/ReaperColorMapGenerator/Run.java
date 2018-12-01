@@ -46,14 +46,41 @@ public class Run {
          }
 
          graphics2D.drawLine(noteIndex, 0, noteIndex, 63);
+      }
+
+      scaleNote = 1;
+      for (int i = scaleTonicNote; i < scaleTonicNote + 12; i++) {
+
+         int noteIndex = Util.getNotesIndex(i);
+
+         if (scalePattern[noteIndex]) {
+
+            switch (scaleNote) {
+
+               case 1:
+                  graphics2D.setPaint(NoteColors.selectedTonicNote);
+                  break;
+               case 4:
+                  graphics2D.setPaint(NoteColors.selectedFourthScaleNote);
+                  break;
+               case 7:
+                  graphics2D.setPaint(NoteColors.selectedLeadingNote);
+                  break;
+               default:
+                  graphics2D.setPaint(NoteColors.selectedRegularNote);
+            }
+            scaleNote++;
+         } else {
+            graphics2D.setPaint(NoteColors.selectedNonScaleNote);
+         }
+
          graphics2D.drawLine(noteIndex, 65, noteIndex, 128);
       }
 
-
-      graphics2D.setPaint(NoteColors.regularOutline);
-      graphics2D.drawLine(0, height/2-1, width-1, height/2-1);
-      graphics2D.setPaint(NoteColors.selectedOutline);
-      graphics2D.drawLine(0, height-1, width-1, height-1);
+      //graphics2D.setPaint(NoteColors.regularOutline);
+      //graphics2D.drawLine(0, height/2-1, width-1, height/2-1);
+      //graphics2D.setPaint(NoteColors.selectedOutline);
+      //graphics2D.drawLine(0, height-1, width-1, height-1);
 
       graphics2D.setPaint(NoteColors.nonScaleNote);
       graphics2D.fillRect(12, 0, width - 12, height/2-1);
