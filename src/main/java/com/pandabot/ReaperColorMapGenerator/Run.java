@@ -86,6 +86,12 @@ public class Run {
       graphics2D.fillRect(12, 0, width - 12, height/2-1);
       graphics2D.fillRect(12, height/2, width - 12, height/2-1);
 
+      // adding red color to max velocity notes
+      graphics2D.setPaint(NoteColors.leadingNote);
+      int numberOfMidiChannels = 17;
+      graphics2D.drawLine(width-numberOfMidiChannels-1, 0, width-numberOfMidiChannels-1, 63);
+      graphics2D.drawLine(width-numberOfMidiChannels-1, 65, width-numberOfMidiChannels-1, 128);
+
       String colorMapFileName = ScaleFunctions.getColorMapFileName(scaleTonicNote, scaleType);
       ImageIO.write(bufferedImage, "PNG", new File("./output/" + colorMapFileName));
    }
