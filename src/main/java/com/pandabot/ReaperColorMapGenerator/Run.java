@@ -88,10 +88,28 @@ public class Run {
       graphics2D.setPaint(NoteColors.selectedNonScaleNote);
       graphics2D.fillRect(12, height/2, width - 12, height/2-1);
 
-      // adding red color to max velocity notes
-      graphics2D.setPaint(NoteColors.maxVelocityNote);
-      int numberOfMidiChannels = 17;
-      graphics2D.drawLine(width-numberOfMidiChannels-1, 0, width-numberOfMidiChannels-1, 63);
+
+      int numberOfPitches = 12;
+      int numberOfMidiNotes = 128;
+
+      // adding blue color to indicate breath notes
+      graphics2D.setPaint(NoteColors.breathNote);
+      graphics2D.drawLine(numberOfPitches + numberOfMidiNotes, 0, numberOfPitches + numberOfMidiNotes, 63);
+
+      // adding light red color to indicate low grit notes
+      int lowGritVelocity = 125;
+      graphics2D.setPaint(NoteColors.lowGritNote);
+      graphics2D.drawLine(numberOfPitches + lowGritVelocity, 0, numberOfPitches + lowGritVelocity, 63);
+
+      // adding medium red color to indicate medium grit notes
+      int mediumGritVelocity = 126;
+      graphics2D.setPaint(NoteColors.mediumGritNote);
+      graphics2D.drawLine(numberOfPitches + mediumGritVelocity, 0, numberOfPitches + mediumGritVelocity, 63);
+
+      // adding bright red color to indicate high grit notes
+      int highGritVelocity = 127;
+      graphics2D.setPaint(NoteColors.highGritNote);
+      graphics2D.drawLine(numberOfPitches + highGritVelocity, 0, numberOfPitches + highGritVelocity, 63);
 
       String colorMapFileName = ScaleFunctions.getColorMapFileName(scaleTonicNote, scaleType);
       ImageIO.write(bufferedImage, "PNG", new File("./output/" + colorMapFileName));

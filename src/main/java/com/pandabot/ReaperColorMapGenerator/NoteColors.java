@@ -16,7 +16,10 @@ public class NoteColors {
    public final static Color selectedLeadingNote = new Color(255, 255, 255);
    public final static Color selectedNonScaleNote = new Color(255, 255, 255);
 
-   public final static Color maxVelocityNote = new Color(250, 180, 175);
+   public final static Color lowGritNote = new Color(250, 180, 175);
+   public final static Color mediumGritNote = new Color(245, 112, 100);
+   public final static Color highGritNote = new Color(240, 43, 25);
+   public final static Color breathNote = new Color(75, 164, 236);
 
    public final static Color regularOutline = new Color(0, 0, 0);
    public final static Color selectedOutline = new Color(255, 255, 255);
